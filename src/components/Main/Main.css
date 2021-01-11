@@ -1,0 +1,148 @@
+.search{
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
+    background-size: cover;
+}
+
+.search__title{
+    max-width: 608px;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 64px;
+    color: white;
+    margin: 160px auto 0;
+}
+
+.search__subtitle{
+    max-width: 545px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: white;
+    margin: 32px auto 0;
+}
+
+.search__form{
+    max-width: 608px;
+    width: 100%;
+    border-radius: 100px;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 64px auto 80px;
+}
+
+.search__input{
+    border-radius: 100px;
+    border: none;
+    margin: 21px auto 21px 24px;
+    max-width: 376px;
+    width: 100%;
+    color: black;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.search__input::placeholder {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #B6BCBF;
+}
+
+
+.search__button{
+    background-color: #2F71E5;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    padding-top: 18px;
+    padding-bottom: 22px;
+    max-width: 168px;
+    width: 100%;
+}
+
+.author{
+    max-width: 1440px;
+    display: grid;
+    grid-template-columns: fit-content(464px) 1fr;
+    grid-template-rows: auto;
+    background-color: white;
+    gap: 56px;
+    padding: 80px 104px;
+}
+
+.author__img{
+   
+    /* background: url(../../images/Yeisk.jpg); */
+    width: 464px;
+    
+    height: 464px;
+    border-radius: 1000px;
+    /* padding-bottom: 50%; */
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+
+.author__text{
+    max-width: 600px;
+    width: 100%;
+}
+
+.author__title{
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+}
+
+.author__subtitle{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+@media screen and (max-width:1024px){
+    .author__img{
+        width: 300px;
+        height: 300px;
+    }
+    .author{
+        padding: 70px 70px;
+    }
+}
+
+  @media screen and (max-width:768px){
+    .author__img{
+        width: 232px;
+        height: 232px;
+    }
+    .author{
+        padding: 61px 40px;
+    }
+}
