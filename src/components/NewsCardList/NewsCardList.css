@@ -19,6 +19,7 @@
     grid-template-columns: repeat(auto-fit, minmax(282px,1fr));
     grid-gap: 16px;
     list-style-type: none;
+    padding: 0;
 }
 
 .news-card-list__button{

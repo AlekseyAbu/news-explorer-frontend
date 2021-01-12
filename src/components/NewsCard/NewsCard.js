@@ -7,6 +7,7 @@ function NewsCard(params) {
     return(
         
         <li className='card'>
+            <button className='card__button-save'></button>
             <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='' />
             <div className='card__description'>
                 <time className='card__time'>21.03.1997</time>
