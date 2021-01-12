@@ -2,6 +2,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Main from '../Main/Main.js'
 import Footer from '../Footer/Footer.js';
+import Header from '../Header/Header.js';
 
 function App() {
 
@@ -9,10 +10,9 @@ function App() {
 
     return (
         <div className='body'>
-            <h1> Hello world! </h1>
+            <Header />
             <Switch >
                 <Route path='/'> 
-                { /* //main */} 
                 <Main />
                 </Route>
                 <Route path='/saved-news' > { /* //saved-news */} </Route>
@@ -21,7 +21,6 @@ function App() {
         </div>
     );
 }
-
 
 
 export default App;

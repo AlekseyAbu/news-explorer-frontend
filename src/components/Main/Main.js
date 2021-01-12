@@ -1,5 +1,6 @@
 import './Main.css';
 import imgAvatarka from '../../images/Yeisk.jpg';
+import NewsCardList from '../NewsCardList/NewsCardList';
 
 function Main(props) {
     return(
@@ -12,6 +13,8 @@ function Main(props) {
                     <button className='search__button' >Искать</button>
             </form>
         </section> 
+
+        <NewsCardList />
 
         <section className='author'>
             {/* <div className='author__img'></div> */}

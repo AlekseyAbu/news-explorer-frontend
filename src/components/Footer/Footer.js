@@ -1,7 +1,7 @@
 import './Footer.css';
 
 function Footer(params) {
-    return(
+    return ( 
         <footer className='footer'>
             <p className='footer__copyright'>© 2020 Supersite, Powered by News API</p>
             <ul className='footer__links'>
@@ -9,8 +9,8 @@ function Footer(params) {
                 <li className='footer__link'><a>Яндекс.Практикум</a></li>
             </ul>
             <ul className='footer__networks'>
-                <li className='footer__network'><a className='footer__network_git'></a> </li>
-                <li className='footer__network footer__network_facebook'><a className='footer__network_facebook'></a></li>
+                <li className='footer__network footer__network_git'><a className=''></a> </li>
+                <li className='footer__network footer__network_facebook'><a className=''></a></li>
             </ul>
         </footer>
     )

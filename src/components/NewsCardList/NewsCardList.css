@@ -1,0 +1,39 @@
+.news-card-list{
+    background: #F5F6F7;
+    padding: 80px 104px 0;
+}
+
+.news-card-list__title{
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    margin: 0;
+}
+
+.cards-lists{
+    max-width: 1232px;
+    margin: 65px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(282px,1fr));
+    grid-gap: 16px;
+    list-style-type: none;
+}
+
+.news-card-list__button{
+    max-width: 288px;
+    width: 100%;
+    margin: 64px auto 80px;
+    border-radius: 80px;
+    background:white;
+    color: #1A1B22;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    padding-top: 18px;
+    padding-bottom: 22px;
+    border: none;
+}
