@@ -1,6 +1,7 @@
 .news-card-list{
     background: #F5F6F7;
-    padding: 0 104px;
+    padding: 0 104px 80px;
+    
 }
 
 .news-card-list__title{
@@ -24,9 +25,10 @@
 }
 
 .news-card-list__button{
+    display: block;
     max-width: 288px;
     width: 100%;
-    margin: 64px auto 80px;
+    margin: 64px auto 0;
     border-radius: 80px;
     background:white;
     color: #1A1B22;
@@ -38,4 +40,46 @@
     padding-top: 18px;
     padding-bottom: 22px;
     border: none;
+}
+
+@media screen and (max-width:1024px){
+    .news-card-list{
+        padding: 0 70px 80px; 
+    }
+}
+
+@media screen and (max-width:768px){
+    .news-card-list{
+        padding: 0 40px 40px;
+    }
+    .news-card-list__button{
+        margin-top: 22px;
+    }
+    .news-card-list__title{
+        padding-top: 40px;
+    }
+    .cards-lists{
+        margin-top: 32px;
+    }
+}
+
+@media screen and (max-width:580px){
+    .news-card-list{
+        padding: 0 20px 32px;
+    }
+    .news-card-list__button{
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width:375px){
+    .news-card-list{
+        padding: 0 16px;
+    }
+    .news-card-list__title{
+        padding-top: 32px;
+    }
+    .cards-lists{
+        margin-top: 24px;
+    }
 }
