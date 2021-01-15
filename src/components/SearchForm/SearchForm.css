@@ -6,6 +6,7 @@
     align-items: center;
     background: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
     background-size: cover;
+    
 }
 
 .search__title{
@@ -87,10 +88,22 @@
 }
 
 @media screen and (max-width:1024px){
-    .search{
-        padding: 0 16px;
+    .search__title{
+        padding-left: 16px;
+        padding-right: 16px;
     }
-
+    .search__subtitle{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .search__button{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .search__input{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
 
 @media screen and (max-width:580px){

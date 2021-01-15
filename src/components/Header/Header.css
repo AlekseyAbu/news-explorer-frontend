@@ -1,4 +1,5 @@
 .header{
+    max-width: 1232px;
     
     display: flex;
     flex-direction: row;
@@ -12,6 +13,7 @@
     border-bottom: 1px solid white;
     box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
     z-index: 2;
+    box-sizing: border-box;
 }
 
 .header_black{
@@ -27,6 +29,13 @@
     margin-top: 30px;
     margin-bottom: 26px;
 }
+
+/* .header__buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 0 auto;
+} */
 
 .header__navigation{
     margin: 0 32px 0 auto;
@@ -64,6 +73,14 @@
     border: 1px solid black;
 }
 
+.header__button_mobail{
+    display: none;
+}
+
+.header__button_checkbox{
+    opacity: 0;
+}
+
 @media screen and (max-width:1024px){
     .header{
         padding: 0 70px;
@@ -91,4 +108,91 @@
         padding: 8px 12px;
     }
 
+    .header__nav_active{
+        padding-bottom: 28px;
+    }
+
+}
+
+@media screen and (max-width:580px){
+    .header{
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        align-items: flex-start;
+        /* background: #1A1B22; */
+        padding: 0 16px;
+    }
+
+    .header__navigation{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
+        display: none;
+    }
+
+    .header__title{
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .header__nav, .header__nav_active{
+        margin: 0;
+        padding: 0;
+        border-bottom: 0;
+    }
+
+    .header__nav:nth-last-child(n+2){
+        margin-right: 0;
+    }
+
+    .header__button{
+        /* display: none; */
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: -100%;
+    }
+  
+    .header__buttons{
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .header__button_mobail{
+        display: block;
+        background: transparent;
+    }
+    
+    .header__button_mobail::before{
+        height: 2px;
+        width: 16px;
+        content: "";
+        display: block;
+        position: absolute;
+        background: white;
+        top: 30px;
+        right: 20px;
+        z-index: 50;
+        cursor: pointer;
+    }
+
+    .header__button_mobail::after{
+        height: 2px;
+        width: 16px;
+        content: "";
+        display: block;
+        position: absolute;
+        background: white;
+        top: 34px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    .header__button_checkbox:checked ~ .header{
+        background: black;
+        height: 100%;
+    }
 }
