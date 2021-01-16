@@ -1,17 +1,16 @@
-import './PopupSignIn.css';
-import PopupWithForm from '../PopupWithForm/PopupWithForm';
-import { Link } from 'react-router-dom';
+import './PopupWithForm.css';
 
-function PopupSignIn({isOpen, isClose, isOpenPopupWithForm}) {
+
+function PopupWithForm({isOpen, isClose, isOpenPopupSignIn}) {
+
     const goToLink = () => {
         console.log('hey')
         isClose();
-        isOpenPopupWithForm()
+        isOpenPopupSignIn()
     }
-
     
     return(
-        <section className={`popup popup__signin ${isOpen ? 'popup_opened' : ''}`}>
+        <section className={`popup popup__signup ${isOpen ? 'popup_opened' : ''}`}>
                 <div className='popup_container'>
                     <button className='popup__close' onClick={isClose}></button>
                     <h3 className='popup__title'>Вход</h3>
@@ -20,12 +19,14 @@ function PopupSignIn({isOpen, isClose, isOpenPopupWithForm}) {
                         <input className='popup__input popup__input_email'></input>
                         <p className='popup__input-text'>Password</p>
                         <input className='popup__input popup__input_password'></input>
+                        <p className='popup__input-text'>Name</p>
+                        <input className='popup__input popup__input_name'></input>
                         <button className='popup__button'>Войти</button>
                     </form>
-                    <p className='popup__footer' >или <button className='popup__link' onClick={goToLink}>Зарегистрироваться</button> </p>
+                    <p className='popup__footer' >или <button className='popup__link' onClick={goToLink}>Войти</button> </p>
                 </div>
             </section>
     )
 }
 
-export default PopupSignIn;
+export default PopupWithForm;

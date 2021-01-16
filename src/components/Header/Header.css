@@ -155,28 +155,33 @@
         left: -100%;
     }
   
-    .header__buttons{
+    /* .header__buttons{
         visibility: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+    } */
+
     .header__button_mobail{
-        display: block;
-        background: transparent;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 24px;
+        right: 20px;
+        width: 16px;
+        height: 6px;
+        cursor: pointer;
+        z-index: 5;
     }
     
     .header__button_mobail::before{
         height: 2px;
-        width: 16px;
+        width: 100%;
         content: "";
         display: block;
         position: absolute;
-        background: white;
-        top: 30px;
-        right: 20px;
-        z-index: 50;
-        cursor: pointer;
+        background: white;  
+        top: -2px;  
     }
 
     .header__button_mobail::after{
@@ -186,13 +191,11 @@
         display: block;
         position: absolute;
         background: white;
-        top: 34px;
-        right: 20px;
-        cursor: pointer;
+        top: 4px;
     }
 
-    .header__button_checkbox:checked ~ .header{
-        background: black;
+    .header__button_mobail:checked ~ .header__title{
+        color: black;
         height: 100%;
     }
 }
