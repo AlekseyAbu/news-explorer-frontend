@@ -1,5 +1,5 @@
 import './Header.css';
-import { useLocation } from 'react-router-dom';
+import { Link, Route, Switch, useLocation } from 'react-router-dom';
 
 function Header({onSignIn}) {
     const location = useLocation();
@@ -12,13 +12,21 @@ function Header({onSignIn}) {
             <h2 className='header__title'>NewsExplorer</h2>
             <input id='checkbox' type='checkbox' className='header__button_checkbox'/>
             <label for='checkbox' className='header__button_mobail'></label>
-            {/* <div className='header__buttons'> */}
             <nav className='header__navigation'>
-                <a className='header__nav header__nav_active'>Главная</a>
-                <a className='header__nav'>Сохранённые статьи</a>
+                <Switch>
+                    <Route exact path='/'>
+                        <Link to='/' className='header__link header__link_active'>Главная</Link>
+                        <Link to='/saved-news' className='header__link'>Сохранённые статьи</Link>
+                    </Route>
+                    <Route path='/saved-news'>
+                        <Link to='/' className='header__link'>Главная</Link>
+                        <Link to='/saved-news' className='header__link header__link_active'>Сохранённые статьи</Link>
+                    </Route>
+                </Switch>
+                {/* <a className='header__nav header__nav_active'>Главная</a>
+                <a className='header__nav'>Сохранённые статьи</a> */}
             </nav>
             <button className={`header__button ${path !== '/saved-news' ? '' : 'header__button_black'}`} onClick={onSignIn}>Авторизоваться</button>
-            {/* </div> */}
         </header>
     )
 }

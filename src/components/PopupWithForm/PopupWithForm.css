@@ -15,7 +15,7 @@
     opacity: 0;
 }
 
-.popup_container {
+.popup__container {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -125,4 +125,23 @@
     background: transparent;
     color: #2F71E5;
     padding: 0;
+}
+
+@media screen and (max-width:540px){
+    .popup__container{
+        max-width: 540px;    
+        width: 100%;
+        padding: 17px 16px ;
+        height: 85%;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .popup__close{
+        top: -56px;
+        right: 16px;
+    }
+    .popup{
+        z-index: 10;
+        align-items: flex-end;
+    }
 }

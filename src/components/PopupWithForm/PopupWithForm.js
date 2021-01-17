@@ -11,7 +11,7 @@ function PopupWithForm({isOpen, isClose, isOpenPopupSignIn}) {
     
     return(
         <section className={`popup popup__signup ${isOpen ? 'popup_opened' : ''}`}>
-                <div className='popup_container'>
+                <div className='popup__container'>
                     <button className='popup__close' onClick={isClose}></button>
                     <h3 className='popup__title'>Вход</h3>
                     <form className='popup__form' >

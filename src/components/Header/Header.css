@@ -46,11 +46,22 @@
     line-height: 24px;
 }
 
-.header__nav:nth-last-child(n+2){
+.header__link{
+    text-decoration: none;
+    color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.header__link:nth-last-child(n+2){
     margin-right: 34px;
 }
 
-.header__nav_active{
+.header__link_active{
     padding-bottom: 26px;
     border-bottom: 3px solid white;
 }
@@ -66,6 +77,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
+    cursor: pointer;
 }
 
 .header__button_black{
@@ -108,9 +120,7 @@
         padding: 8px 12px;
     }
 
-    .header__nav_active{
-        padding-bottom: 28px;
-    }
+    
 
 }
 
@@ -137,13 +147,13 @@
         margin-bottom: 16px;
     }
 
-    .header__nav, .header__nav_active{
+    .header__link, .header__link_active{
         margin: 0;
         padding: 0;
         border-bottom: 0;
     }
 
-    .header__nav:nth-last-child(n+2){
+    .header__link:nth-last-child(n+2){
         margin-right: 0;
     }
 

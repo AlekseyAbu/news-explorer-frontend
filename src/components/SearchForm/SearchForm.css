@@ -85,6 +85,7 @@
     padding-bottom: 22px;
     max-width: 168px;
     width: 100%;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1024px){
