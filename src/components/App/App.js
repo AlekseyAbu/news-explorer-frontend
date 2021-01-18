@@ -11,6 +11,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import PopupSignIn from '../PopupSignIn/PopupSignIn';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import PopupUserRegistered from '../PopupUserRegistered/PopupUserRegistered';
+import '../../fonts/fonts.css';
 
 function App() {
     // const [ dataCards, setDataCards] = React.useState([]);

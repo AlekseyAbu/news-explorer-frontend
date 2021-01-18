@@ -3,6 +3,7 @@
     border-radius: 10px;
     position: relative;
     background: white;
+    margin: 0 auto;
 }
 
 .card__img{
