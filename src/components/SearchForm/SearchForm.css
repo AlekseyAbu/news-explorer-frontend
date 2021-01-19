@@ -88,22 +88,10 @@
     cursor: pointer;
 }
 
-@media screen and (max-width:1024px){
-    .search__title{
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    .search__subtitle{
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    .search__button{
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-    .search__input{
-        padding-left: 16px;
-        padding-right: 16px;
+@media screen and (max-width:768px){
+    .search{
+        width: calc(100% - 32px);
+        padding: 0 16px;
     }
 }
 
@@ -114,9 +102,12 @@
         background: transparent;
     }
     .search__input{
+        display: flex;
         max-width: 288px;
-        max-width: 100%;
-        margin: 0 0 16px;
+        width: 100%;
+        padding-left: 16px;
+        margin: 0 auto 16px;
+        box-sizing: border-box;
     }
     .search__button{
         max-width: 288px;

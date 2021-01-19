@@ -13,7 +13,7 @@ function SavedNews(params) {
                 <NewsCard />
                 <li className='card'>
             <button className='card__button-save'></button>
-            <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='' />
+            <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='Изображение' />
             <div className='card__description'>
                 <time className='card__time'>21.03.1997</time>
                 <h3 className='card__title'>Чебоксары</h3>
@@ -23,7 +23,7 @@ function SavedNews(params) {
         </li>
         <li className='card'>
             <button className='card__button-save'></button>
-            <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='' />
+            <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='Изображение' />
             <div className='card__description'>
                 <time className='card__time'>21.03.1997</time>
                 <h3 className='card__title'>Чебоксары</h3>
@@ -33,7 +33,7 @@ function SavedNews(params) {
         </li>
         <li className='card'>
             <button className='card__button-save'></button>
-            <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='' />
+            <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='Изображение' />
             <div className='card__description'>
                 <time className='card__time'>21.03.1997</time>
                 <h3 className='card__title'>Чебоксары</h3>
