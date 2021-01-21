@@ -47,7 +47,7 @@
 .search__input{
     border-radius: 100px;
     border: none;
-   
+    
     max-width: 376px;
     
     color: black;
@@ -59,6 +59,7 @@
     background-color: white;
     border-radius: 100px;
     padding: 21px 0;
+    padding-left: 24px;
 }
 
 .search__input::placeholder {
