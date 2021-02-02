@@ -1,12 +1,30 @@
+import  React  from 'react';
 import './PopupWithForm.css';
 
+function PopupWithForm({isOpen, isClose, isOpenPopupSignIn, register, errorMessage}) {
 
-function PopupWithForm({isOpen, isClose, isOpenPopupSignIn}) {
+    const [ data, setData] = React.useState({
+        email: '',
+        password: '',
+        name: ''
+    })
 
     const goToLink = () => {
-        console.log('hey')
         isClose();
         isOpenPopupSignIn()
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        register(data)
     }
     
     return(
@@ -14,13 +32,13 @@ function PopupWithForm({isOpen, isClose, isOpenPopupSignIn}) {
                 <div className='popup__container'>
                     <button className='popup__close' onClick={isClose}></button>
                     <h3 className='popup__title'>Вход</h3>
-                    <form className='popup__form' >
+                    <form className='popup__form' onSubmit={handleSubmit}>
                         <p className='popup__input-text'>Email</p>
-                        <input className='popup__input popup__input_email' required></input>
+                        <input type="email" name='email' className='popup__input popup__input_email' required defaultValue={data.email} onChange={handleChange}></input>
                         <p className='popup__input-text'>Password</p>
-                        <input className='popup__input popup__input_password' required></input>
+                        <input type="password" name='password' className='popup__input popup__input_password' required defaultValue={data.password} onChange={handleChange}></input>
                         <p className='popup__input-text'>Name</p>
-                        <input className='popup__input popup__input_name' required></input>
+                        <input type="name" name='name' className='popup__input popup__input_name' required defaultValue={data.name} onChange={handleChange}></input>
                         <button className='popup__button'>Войти</button>
                     </form>
                     <p className='popup__footer' >или <button className='popup__link' onClick={goToLink}>Войти</button> </p>

@@ -2,12 +2,15 @@ import './Main.css';
 import imgAvatarka from '../../images/Yeisk.jpg';
 import NewsCardList from '../NewsCardList/NewsCardList';
 
-function Main(props) {
+function Main({cardNews, newsCardList}) {
     return(
         <main className='main'>
         
 
-        <NewsCardList />
+        <NewsCardList 
+            cardNews={cardNews} 
+            newsCardList={newsCardList}
+        />
 
         <section className='author'>
             {/* <div className='author__img'></div> */}

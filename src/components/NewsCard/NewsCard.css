@@ -11,7 +11,7 @@
     height: 272px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
-
+    background-size: cover;
 }
 
 .card__description{

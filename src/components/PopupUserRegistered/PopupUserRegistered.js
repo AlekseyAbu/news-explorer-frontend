@@ -12,7 +12,7 @@ function PopupUserRegistered({isOpen, isClose, isOpenPopupSignIn}) {
                 <div className='popup__container popup__container_user'>
                     <button className='popup__close' onClick={isClose}></button>
                     <h3 className='popup__title'>Пользователь успешно зарегистрирован!</h3>
-                    <button className='popup__link' onClick={goToLink}>Зарегистрироваться</button>
+                    <button className='popup__link' onClick={goToLink}>Войти</button>
                 </div>
             </section>
     )

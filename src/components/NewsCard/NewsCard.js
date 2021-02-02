@@ -1,19 +1,43 @@
 import './NewsCard.css';
+import { setCard } from '../../utils/Token';
 
-function NewsCard(params) {
-    const text = 'Название селения известно с 1469 года в форме Чебоксар, происходит от гидронима реки Чебоксарки, в устье которой находится город. В основе гидронима распространённое у марийцев и мордвы дохристианское личное имя «Чебак» (вариант — «Чебакса»)[5], к которому добавляется компонент -ар, происходящий из древних финно-угорских языков. Таким образом, «Чебоксарка» — «река Чебака». В диалектах чувашского языка ойконим звучит как «Шобашкар», современная литературная чувашская форма — «Шупашкар». По оценке В. А. Никонова, ойконим может происходить из марийского шобакшенгер. где шобакш — «кадушка, бурак из бересты при языческих моленьях», а енгер — «ручей, речка»[6].В начале XX века в употреблении закрепилась форма множественного числа — Чебоксары[7].'
-    const croppeText = text.substring(0, 160)
+function NewsCard({key, item, handleToShow}) {
+    console.log(item)
+    const text = item.description;
+    const croppeText = text.substring(0, 160);
+    const title = item.title;
+    const croppeTitle = title.substring(0, 55);
+    
+
+    let options = {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric'
+    }
+      
+    function getDate(str) {
+       var date = new Date(str);
+       return date.toLocaleString('ru', options)
+    }
+       
+    const date = getDate(item.publishedAt);
+
+    function setCardSave() {
+        console.log(item)
+        const keyItem = 'save'
+        setCard({keyItem, item})
+    }
 
     return(
         
         <li className='card'>
-            <button className='card__button-save'></button>
-            <img className='card__img' src='https://cdn.sozvezdie-tour.ru/images/uploadedfiles/12502353-4fbf-4951-99b4-e3c7dd0879fb.jpg' alt='Изображение карточки' />
+            <button className='card__button-save' onClick={setCardSave}></button>
+            <img className='card__img' src={item.urlToImage} alt='Изображение карточки' />
             <div className='card__description'>
-                <time className='card__time'>21.03.1997</time>
-                <h3 className='card__title'>Чебоксары</h3>
+                <time className='card__time'>{date}</time>
+                <h3 className='card__title'>{`${croppeTitle}...`}</h3>
                 <p className='card__text'>{`${croppeText}...`}</p>
-                <p className='card__source'>Википедия</p>
+                <p className='card__source'>{item.author}</p>
             </div>
         </li>
 

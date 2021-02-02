@@ -6,6 +6,10 @@
     
 }
 
+.news-card-list_none{
+    display: none;
+}
+
 .news-card-list__title{
     font-family: Roboto Slab;
     font-style: normal;

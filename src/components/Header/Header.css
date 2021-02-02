@@ -18,6 +18,7 @@
 
 .header_black{
     color: black;
+    border-bottom: 0.5px solid black;
 }
 
 .header__title{
@@ -57,13 +58,25 @@
     cursor: pointer;
 }
 
+.header__link_black{
+    color: black;
+}
+
 .header__link:nth-last-child(n+2){
     margin-right: 34px;
 }
 
 .header__link_active{
-    padding-bottom: 26px;
+    padding-bottom: 27px;
     border-bottom: 3px solid white;
+}
+
+.header__link_active{
+    border-bottom: 3px solid black;
+}
+
+.header__link_none{
+    display: none;
 }
 
 .header__button{
