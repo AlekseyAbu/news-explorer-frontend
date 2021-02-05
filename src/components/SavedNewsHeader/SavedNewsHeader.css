@@ -3,6 +3,10 @@
     margin: 0 104px;
 }
 
+.save-news-header_none{
+    display: none;
+}
+
 .save-news-header__text{
     font-family: Roboto;
     font-style: normal;

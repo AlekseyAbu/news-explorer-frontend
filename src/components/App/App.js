@@ -24,7 +24,6 @@ import {
 } from '../../utils/Token';
 
 function App() {
-    // const [ dataCards, setDataCards] = React.useState([]);
     const [ isPopupSignIn, setIsPopupSignIn ] = React.useState(false);
     const [ isPopupWithForm, setIsPopupWithForm] = React.useState(false);
     const [ isPopupUser, setIsPopupUser] = React.useState(false);
@@ -36,6 +35,7 @@ function App() {
     const [ errorMessage, setErrorMessage ] = useState('');
     const [ userData, setUserData ] = useState('');
     const [ loggedIn, setLoggedIn ] = useState(false);
+   
 
     function handleIsPopupSignIn() {
         setIsPopupSignIn(true);
@@ -126,6 +126,17 @@ function App() {
                 }
             })
     }
+
+    function saveCardNews(data) {
+        const jwt = getToken();
+        MainApi.saveArticle({data, jwt})
+            .then(newArticles => {
+                const NewArticles = cardNews.map(articles => articles.url !== data.url ? articles : newArticles)
+                setCardNews(NewArticles)
+                console.log(NewArticles)
+            })
+            .catch(err => console.error(err))
+    }
     
 
     return (
@@ -149,12 +160,13 @@ function App() {
                     <Main 
                       cardNews={cardNews}  
                       newsCardList={newsCardList}
+                      loggedIn={loggedIn}
+                      saveCardNews={saveCardNews}
                     />
                 </Route>
                 <ProtectedRoute 
                     path='/saved-news'
                     loggedIn={loggedIn}
-                    component={SavedNewsHeader}
                     component={SavedNews}
                 />
             </Switch>

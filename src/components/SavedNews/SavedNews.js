@@ -12,11 +12,9 @@ function SavedNews() {
     return(
         <section className='saved-news'>   
             <ul className='saved-news__lists'>
-                {dataSaveCard.map((item, key) => 
-                    // console.log(item)
-                    // console.log(key)
+                {dataSaveCard.map((item) => 
                     <NewsCard 
-                        key={key} 
+                        key={item.url} 
                         item={item}
                     />
                     )

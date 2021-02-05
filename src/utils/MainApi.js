@@ -66,6 +66,24 @@ class mainApi {
         }))
     }
 
+    saveArticle({data, token}){
+        const {keyword, title, text, date, source, link, image} = data;
+        return fetch(`${this._url}/articles`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({ keyword, title, text, date, source, link, image, })
+        })
+        .then(res => {
+            if(res.ok){
+                return res.json()
+            }
+            Promise.reject(`Ошибка: ${res.status}`)
+        })
+    }
+
 }
 
 const MainApi = new mainApi({

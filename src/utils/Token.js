@@ -12,7 +12,7 @@ export const setToken = (token) => {
 
 export const setCard = (data) => {
     const {keyItem, item } = data;
-    console.log(keyItem)
+    
     const dataCardMassive = []
     dataCardMassive.push(item)
     const dataCardJSON = JSON.stringify(dataCardMassive);
@@ -23,6 +23,6 @@ export const getCard = (key) => {
     console.log(localStorage.getItem(key))
     localStorage.getItem(key)
     const dataCard = JSON.parse(localStorage.getItem(key))
-    console.log(dataCard)
+    
     return dataCard
 } 

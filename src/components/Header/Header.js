@@ -11,7 +11,7 @@ function Header({onSignIn, loggedIn, userData}) {
         <header className={`header ${path !== '/saved-news' ? '' : 'header_black' }`}>
             <h2 className='header__title'>NewsExplorer</h2>
             <input id='checkbox' type='checkbox' className='header__button_checkbox'/>
-            <label for='checkbox' className='header__button_mobail'></label>
+            <label htmlFor='checkbox' className='header__button_mobail'></label>
             <nav className='header__navigation'>
                 <Switch>
                     <Route exact path='/'>

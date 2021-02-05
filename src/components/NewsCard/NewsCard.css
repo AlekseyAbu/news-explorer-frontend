@@ -59,7 +59,7 @@
     margin: 0;
 }
 
-.card__button-save{
+.card__button{
     position: absolute;
     top: 24px;
     right: 24px;
@@ -68,10 +68,59 @@
     background-color: white;
     border: none;
     border-radius: 8px;
-    background-image: url(../../images/bookmark.svg);
     object-fit: cover;
     padding: 0;
     margin: 0;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 14px 19px;
+    background-position: center;
+}
+
+.card__button-text{
+    
+    margin: 0;
+    padding: 13px 5px;
+    background-color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    border-radius: 10px;
+    display: none;
+}
+
+.card__button-save{
+    background-image: url(../../images/flag_default.png);
+}
+
+.card__button-delete{
+    background-image: url(../../images/basket_default.png);
+}
+
+.card__button-delete:hover{
+    background-image: url(../../images/basket_hover.png);
+}
+
+.card__button-save:hover {
+    background-image: url(../../images/flag_hover.png);   
+}
+
+.card__button:hover + .card__button-text{
+    display: block;
+    position: absolute;
+    top: 24px;
+    right: 69px;
+}
+
+.card__button-save_blue{
+    background-image: url(../../images/flag_save.png);
+}
+
+.card__button-save_blue:hover{
+    background-image: url(../../images/flag_hover.png);
 }

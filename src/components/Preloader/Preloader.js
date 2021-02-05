@@ -5,7 +5,7 @@ function Preloader({preloader}) {
 
     return(
         <template className={`${preloader ? 'preloader' : ''}`}>
-            <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>        
+            <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>        
         </template>
     )
 };

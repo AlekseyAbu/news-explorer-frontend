@@ -2,7 +2,7 @@ import './Main.css';
 import imgAvatarka from '../../images/Yeisk.jpg';
 import NewsCardList from '../NewsCardList/NewsCardList';
 
-function Main({cardNews, newsCardList}) {
+function Main({cardNews, newsCardList, loggedIn, saveCardNews}) {
     return(
         <main className='main'>
         
@@ -10,6 +10,8 @@ function Main({cardNews, newsCardList}) {
         <NewsCardList 
             cardNews={cardNews} 
             newsCardList={newsCardList}
+            loggedIn={loggedIn}
+            saveCardNews={saveCardNews}
         />
 
         <section className='author'>

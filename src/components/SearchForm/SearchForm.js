@@ -9,7 +9,6 @@ function SearchForm(props) {
         e.preventDefault();
 
         const  keyWord = inputText.current.value;
-        console.log(keyWord);
         props.searchKeyWord(keyWord);
 
         e.target.reset();
