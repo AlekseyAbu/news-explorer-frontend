@@ -37,6 +37,7 @@ function App() {
     const [ userData, setUserData ] = useState('');
     const [ loggedIn, setLoggedIn ] = useState(false);
     const [ isStateSave, setIsStateSave ] = useState(false);
+    const [ nothingFound, setNothingFound] = useState(false);
    
 
     function handleIsPopupSignIn() {
@@ -74,8 +75,15 @@ function App() {
     function searchKeyWord(keyWord) {
         setKeyWord(keyWord)
         setPreloader(true);
+        setNothingFound(false);
         NewsApi.getSearchNews(keyWord)
             .then(res => {
+                if(res.totalResults === 0){
+                    setNothingFound(true)
+                } else{
+                    setNothingFound(false);
+                }
+                
                 setPreloader(false);
                 setCardNews(res.articles)
                 setNewsCardList(true);
@@ -178,9 +186,9 @@ function App() {
             <SavedNewsHeader
                 saveNews={saveNews}
             />
-            < Preloader 
+            {/* < Preloader 
                 preloader={preloader}
-            />
+            /> */}
             <Switch >
                 <Route exact path='/'> 
                     <SearchForm 
@@ -192,6 +200,8 @@ function App() {
                       loggedIn={loggedIn}
                       saveCardNews={saveCardNews}
                       onSignIn={handleIsPopupSignIn}
+                      preloader={preloader}
+                      nothingFound={nothingFound}
                     />
                 </Route>
                 <ProtectedRoute 

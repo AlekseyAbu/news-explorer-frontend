@@ -1,18 +1,26 @@
 import './Main.css';
 import imgAvatar from '../../images/Yeisk.jpg';
 import NewsCardList from '../NewsCardList/NewsCardList';
+import Preloader from '../Preloader/Preloader';
+import NothingFound from '../NothingFound/NothingFound';
 
-function Main({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn}) {
+function Main({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn, preloader, nothingFound}) {
     return(
         <main className='main'>
         
-
+        <Preloader 
+            preloader={preloader}
+        />
+        <NothingFound 
+            nothingFound={nothingFound}
+        />
         <NewsCardList 
             cardNews={cardNews} 
             newsCardList={newsCardList}
             loggedIn={loggedIn}
             saveCardNews={saveCardNews}
             onSignIn={onSignIn}
+            nothingFound={nothingFound}
         />
 
         <section className='author'>

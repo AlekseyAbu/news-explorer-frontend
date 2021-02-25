@@ -3,16 +3,16 @@ import NewsCard from '../NewsCard/NewsCard';
 import '../NewsCard/NewsCard.css';
 import { useState } from 'react';
 
-function NewsCardList({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn}) {
+function NewsCardList({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn,nothingFound}) {
     const [ toShow, setToShow ] = useState(3);
     const seeItem = cardNews.slice(0, toShow)
     function handleToShow() {
         setToShow(toShow + 3)
     }
-    
+    console.log(nothingFound)
 
     return (
-        <section className={`${newsCardList ? 'news-card-list' : 'news-card-list_none'}`}>
+        <section className={`${!nothingFound ? 'news-card-list' : 'news-card-list_none'}`}>
             <h2 className='news-card-list__title'>Результаты поиска</h2>
             <ul className='cards-lists'>
                 
