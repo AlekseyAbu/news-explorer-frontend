@@ -28,13 +28,15 @@ function App() {
     const [ isPopupWithForm, setIsPopupWithForm] = React.useState(false);
     const [ isPopupUser, setIsPopupUser] = React.useState(false);
     const [ cardNews, setCardNews ] = React.useState([]);
+    const [ saveNews, setSaveNews ] = React.useState([]);
     const [ infoUser, setInfoUser ] = React.useState({})
     const [ preloader, setPreloader ] = useState(false);
     const [ newsCardList, setNewsCardList ] = useState(false);
-    const [ keyWord, setKeyWord ] = useState([]);
+    const [ keyWord, setKeyWord ] = useState();
     const [ errorMessage, setErrorMessage ] = useState('');
     const [ userData, setUserData ] = useState('');
     const [ loggedIn, setLoggedIn ] = useState(false);
+    const [ isStateSave, setIsStateSave ] = useState(false);
    
 
     function handleIsPopupSignIn() {
@@ -55,16 +57,22 @@ function App() {
     }
 
     useEffect(() => {
+        getSaveCardNews();
         tokenCheck();
         NewsApi.getNewsInfo()
         .then(res => {
                 setCardNews(res.articles)
-                
             })
         .catch(err => console.log(err))
     }, [])
 
+    useEffect(() => {
+        console.log('pognali')
+        tokenCheck();
+    }, [])
+
     function searchKeyWord(keyWord) {
+        setKeyWord(keyWord)
         setPreloader(true);
         NewsApi.getSearchNews(keyWord)
             .then(res => {
@@ -101,6 +109,7 @@ function App() {
                 if(res.token){
                     setToken(res.token);
                     setIsPopupSignIn(false);
+                    
                     console.log(res)
                 }
             })
@@ -127,15 +136,34 @@ function App() {
             })
     }
 
+    //сохраняем карточки
     function saveCardNews(data) {
-        const jwt = getToken();
-        MainApi.saveArticle({data, jwt})
+        MainApi.saveArticle(data, keyWord)
             .then(newArticles => {
-                const NewArticles = cardNews.map(articles => articles.url !== data.url ? articles : newArticles)
-                setCardNews(NewArticles)
-                console.log(NewArticles)
+                setSaveNews([newArticles, ...saveNews])
             })
             .catch(err => console.error(err))
+    }
+
+    //получаем сохраненые карточки
+    function getSaveCardNews() {
+        MainApi.getArticle()
+            .then(data => {
+                console.log(data)
+                setSaveNews(data)
+            })
+            .catch(err => console.error(err))
+    }
+
+    //удаление картчоки
+    function deleteSaveCard(articleID) {
+        console.log(articleID)
+        MainApi.deleteArticle(articleID)
+            .then(() => {
+                console.log('hey')
+                const saveArticle = saveNews.filter(item => item._id !== articleID)
+                setSaveNews(saveArticle)
+            })
     }
     
 
@@ -148,6 +176,7 @@ function App() {
                 userData={userData}
             />
             <SavedNewsHeader
+                saveNews={saveNews}
             />
             < Preloader 
                 preloader={preloader}
@@ -162,12 +191,16 @@ function App() {
                       newsCardList={newsCardList}
                       loggedIn={loggedIn}
                       saveCardNews={saveCardNews}
+                      onSignIn={handleIsPopupSignIn}
                     />
                 </Route>
                 <ProtectedRoute 
                     path='/saved-news'
                     loggedIn={loggedIn}
                     component={SavedNews}
+                    saveNews={saveNews}
+                    deleteSaveCard={deleteSaveCard}
+                    onSignIn={handleIsPopupSignIn}
                 />
             </Switch>
             <Footer />

@@ -1,3 +1,5 @@
+import { getToken } from '../utils/Token';
+
 class mainApi {
     constructor({url}) {
         this._url = url;
@@ -66,15 +68,60 @@ class mainApi {
         }))
     }
 
-    saveArticle({data, token}){
-        const {keyword, title, text, date, source, link, image} = data;
+    saveArticle(data, keyWord){
+        const jwt = getToken();
+        console.log(keyWord)
+        const articles ={ 
+            keyword: keyWord, 
+            title: data.title, 
+            text: data.description, 
+            date: data.publishedAt, 
+            source: data.author, 
+            link: data.url, 
+            image: data.urlToImage
+        }
         return fetch(`${this._url}/articles`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
+                'Authorization': `Bearer ${jwt}`,
             },
-            body: JSON.stringify({ keyword, title, text, date, source, link, image, })
+            body: JSON.stringify(articles)
+        })
+        .then(res => {
+            if(res.ok){
+                return res.json()
+            }
+            Promise.reject(`Ошибка: ${res.status}`)
+        })
+    }
+
+    getArticle(){
+        const jwt = getToken();
+        return fetch(`${this._url}/articles`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`,
+            }
+        })
+        .then(res => {
+            if(res.ok){
+                return res.json()
+            }
+            Promise.reject(`Ошибка: ${res.status}`)
+        })
+    }
+
+    deleteArticle(articleID) {
+        console.log(articleID)
+        const jwt = getToken();
+        return fetch(`${this._url}/articles/${articleID}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}`,
+            }
         })
         .then(res => {
             if(res.ok){

@@ -3,7 +3,7 @@ import NewsCard from '../NewsCard/NewsCard';
 import '../NewsCard/NewsCard.css';
 import { useState } from 'react';
 
-function NewsCardList({cardNews, newsCardList, loggedIn, saveCardNews}) {
+function NewsCardList({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn}) {
     const [ toShow, setToShow ] = useState(3);
     const seeItem = cardNews.slice(0, toShow)
     function handleToShow() {
@@ -17,7 +17,7 @@ function NewsCardList({cardNews, newsCardList, loggedIn, saveCardNews}) {
             <ul className='cards-lists'>
                 
                 {seeItem.map((item) => 
-                   <NewsCard key={item.url} item={item} loggedIn={loggedIn} saveCardNews={saveCardNews}/> 
+                   <NewsCard key={item.url} item={item} loggedIn={loggedIn} saveCardNews={saveCardNews} onSignIn={onSignIn}/> 
                 )}
                 
             </ul>

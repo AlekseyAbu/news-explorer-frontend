@@ -20,7 +20,6 @@ export const setCard = (data) => {
 }
 
 export const getCard = (key) => {
-    console.log(localStorage.getItem(key))
     localStorage.getItem(key)
     const dataCard = JSON.parse(localStorage.getItem(key))
     

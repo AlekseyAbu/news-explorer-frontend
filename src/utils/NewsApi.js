@@ -18,7 +18,7 @@ class newsApi {
     }
 
     getSearchNews(keyWord){
-        return fetch(`https://nomoreparties.co/news/v2/everything?q=${keyWord}&from=2021-02-01&to=2021-02-01&language=ru&pageSize=10&apiKey=b3701453d6ca442ab895e448e1aeb444` , {
+        return fetch(`https://nomoreparties.co/news/v2/everything?q=${keyWord}&from=2021-23-02&to=2021-23-02&language=ru&pageSize=10&apiKey=b3701453d6ca442ab895e448e1aeb444` , {
             headers: {
                 'Content-Type': 'application/json'
             }

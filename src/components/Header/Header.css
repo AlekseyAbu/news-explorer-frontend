@@ -71,7 +71,8 @@
     border-bottom: 3px solid white;
 }
 
-.header__link_active{
+.header__link_active-black{
+    padding-bottom: 27px;
     border-bottom: 3px solid black;
 }
 
