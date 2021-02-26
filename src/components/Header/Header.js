@@ -1,5 +1,6 @@
 import './Header.css';
 import { Link, Route, Switch, useLocation } from 'react-router-dom';
+import imgExit from '../../images/img_exit.png'
 
 function Header({onSignIn, loggedIn, userData}) {
     const location = useLocation();

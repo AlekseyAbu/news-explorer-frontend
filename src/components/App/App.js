@@ -14,7 +14,6 @@ import PopupUserRegistered from '../PopupUserRegistered/PopupUserRegistered';
 import  NewsApi  from '../../utils/NewsApi.js';
 import '../../fonts/fonts.css';
 import { CurrentUserContext } from '../Contexts/contexts';
-import Preloader from '../Preloader/Preloader';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 import MainApi from '../../utils/MainApi';
 import {

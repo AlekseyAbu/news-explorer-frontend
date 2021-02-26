@@ -31,13 +31,6 @@
     margin-bottom: 26px;
 }
 
-/* .header__buttons{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0 0 0 auto;
-} */
-
 .header__navigation{
     margin: 0 32px 0 auto;
     font-family: Roboto;
@@ -92,6 +85,16 @@
     font-size: 18px;
     line-height: 24px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.header__exit-button{
+    border: none;
+    background: url(../../images/img_exit.png);
+    width: 18px;
+    height: 16px;
+    margin-left: 10px;
 }
 
 .header__button_black{

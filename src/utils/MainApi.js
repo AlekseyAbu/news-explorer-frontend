@@ -134,7 +134,8 @@ class mainApi {
 }
 
 const MainApi = new mainApi({
-    url: 'http://localhost:3000'
+    // url: 'http://localhost:3000'
+    url: 'https://api.diplomabualeksey.students.nomoreparties.space'
 })
 
 export default MainApi;
