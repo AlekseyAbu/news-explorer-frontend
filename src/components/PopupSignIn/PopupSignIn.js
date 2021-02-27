@@ -1,30 +1,21 @@
 import React from 'react';
 import './PopupSignIn.css';
+import { FormValidation } from '../FormValidation/FormValidation';
 
 function PopupSignIn({isOpen, isClose, isOpenPopupWithForm, authorize}) {
-    const [ data, setData] = React.useState({
-        email: '',
-        password: ''
-    })
+    const email = FormValidation();
+    const password = FormValidation();
 
     const goToLink = () => {
         isClose();
         isOpenPopupWithForm()
     }
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        authorize(data)
+        console.log(email.value, password.value)
+        authorize(email.value, password.value)
     }
-
     
     return(
         <section className={`popup popup__signin ${isOpen ? 'popup_opened' : ''}`}>
@@ -32,13 +23,25 @@ function PopupSignIn({isOpen, isClose, isOpenPopupWithForm, authorize}) {
                     <button className='popup__close' onClick={isClose}></button>
                     <h3 className='popup__title'>Вход</h3>
                     <form className='popup__form' onSubmit={handleSubmit}>
+
                         <p className='popup__input-text'>Email</p>
-                        <input type="email" name='email' id='input__email-error' className='popup__input popup__input_email' required defaultValue={data.email} onChange={handleChange}></input>
-                        <span id='input__email-error' className="popup__error"></span>
+                        <input type="email" name='email' id='input__email-error' className='popup__input popup__input_email' 
+                            required 
+                            onChange={email.onChange}
+                            value={email.value}
+                        ></input>
+                        <span id='input__email-error' className="popup__error">{email.errorMessage}</span>
+
                         <p className='popup__input-text'>Password</p>
-                        <input type="password" name='password' id='input__password-error' className='popup__input popup__input_password' required defaultValue={data.password} onChange={handleChange}></input>
-                        <span id='input__password-error' className="popup__error"></span>
-                        <button className='popup__button'>Войти</button>
+                        <input type="password" name='password' id='input__password-error' className='popup__input popup__input_password' 
+                            required 
+                            onChange={password.onChange} 
+                            value={password.value}
+                            minLength="6"
+                        ></input>
+                        <span id='input__password-error' className="popup__error">{password.errorMessage}</span>
+
+                        <button className={`popup__button ${email.isValid && password.isValid ? '' : 'popup__button_disabled'}`}>Войти</button>
                     </form>
                     <p className='popup__footer' >или <button className='popup__link' onClick={goToLink}>Зарегистрироваться</button> </p>
                 </div>

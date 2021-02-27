@@ -1,10 +1,13 @@
 import './Header.css';
 import { Link, Route, Switch, useLocation } from 'react-router-dom';
-import imgExit from '../../images/img_exit.png'
+import imgExit from '../../images/img_exit.png';
+import { removeToken } from '../../utils/Token';
+import imgExitBlack from '../../images/img_exit_black.png';
 
-function Header({onSignIn, loggedIn, userData}) {
+function Header({onSignIn, loggedIn, userData, signOut}) {
     const location = useLocation();
     const path = location.pathname;
+    const textButton = loggedIn ? userData.name : 'Авторизоваться';
 
     return(
         <header className={`header ${path !== '/saved-news' ? '' : 'header_black' }`}>
@@ -23,7 +26,10 @@ function Header({onSignIn, loggedIn, userData}) {
                     </Route>
                 </Switch>
             </nav>
-            <button className={`header__button ${path !== '/saved-news' ? '' : 'header__button_black'}`} onClick={onSignIn}>{loggedIn ? userData.name : 'Авторизоваться'}</button>
+            <button className={`header__button ${path !== '/saved-news' ? '' : 'header__button_black'}`} onClick={loggedIn ? signOut : onSignIn}>
+                <p className='header__button-text'>{textButton}</p>
+                {loggedIn && (<img className='header__button-exit' src={path === '/' ? imgExit : imgExitBlack} alt='Выход'/>)}
+            </button>
         </header>
     )
 }

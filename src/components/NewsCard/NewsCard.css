@@ -77,8 +77,31 @@
 }
 
 .card__button-text-container{   
-    
     display: none;
+}
+
+.card__keyword{
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    height: 40px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.card__keyword_none{
+    display: none;
+}
+
+.card__keyword-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    padding: 8px 12px;
+    margin: 0;
 }
 
 .card__button-text{

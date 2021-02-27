@@ -74,7 +74,7 @@
     padding-bottom: 18px;
     width: 100%;
     margin-bottom: 16px;
-    background-color: #2F71E5;
+    background: #2F71E5;
     border-radius: 100px;
     text-align: center;
     font-family: Roboto;
@@ -134,8 +134,13 @@
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
-    position: absolute;
-    top: 3px;
+    margin-top: -28px;
+    margin-bottom: 13px;
+    color: #FF0000;
+}
+
+.popup__button_disabled{
+    background-color: #E6E8EB;
 }
 
 @media screen and (max-width:540px){

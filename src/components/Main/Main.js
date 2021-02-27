@@ -4,7 +4,7 @@ import NewsCardList from '../NewsCardList/NewsCardList';
 import Preloader from '../Preloader/Preloader';
 import NothingFound from '../NothingFound/NothingFound';
 
-function Main({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn, preloader, nothingFound}) {
+function Main({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn, preloader, nothingFound, saveNews}) {
     return(
         <main className='main'>
         
@@ -21,6 +21,7 @@ function Main({cardNews, newsCardList, loggedIn, saveCardNews, onSignIn, preload
             saveCardNews={saveCardNews}
             onSignIn={onSignIn}
             nothingFound={nothingFound}
+            saveNews={saveNews}
         />
 
         <section className='author'>

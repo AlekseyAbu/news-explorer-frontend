@@ -79,22 +79,25 @@
     background: rgba(0, 0, 0, 0);
     color: white;
     padding: 12px 12px 15px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
     cursor: pointer;
     display: flex;
     align-items: center;
 }
 
-.header__exit-button{
+.header__button-exit{
     border: none;
-    background: url(../../images/img_exit.png);
     width: 18px;
     height: 16px;
     margin-left: 10px;
+}
+
+.header__button-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
 }
 
 .header__button_black{

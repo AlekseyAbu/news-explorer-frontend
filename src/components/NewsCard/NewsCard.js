@@ -3,9 +3,17 @@ import { useLocation } from 'react-router-dom';
 import './NewsCard.css';
 import { setCard } from '../../utils/Token';
 
-function NewsCard({item, loggedIn, saveCardNews, deleteSaveCard, onSignIn}) {
-    // const [ isStateSave, setIsStateSave ] = useState(false);
-    const isStateSave = false;
+function NewsCard({item, loggedIn, saveCardNews, deleteSaveCard, onSignIn, saveNews}) {
+    const location = useLocation();
+    const path = location.pathname;
+
+    const isStateSave = (path === '/' &&
+        (saveNews &&
+            saveNews.find(data => data.title === item.title)
+        )
+    )
+    console.log(item)
+    
 
     let article = {}
     if(!item.description){
@@ -29,9 +37,6 @@ function NewsCard({item, loggedIn, saveCardNews, deleteSaveCard, onSignIn}) {
     const title = article.title;
     const croppeTitle = title.substring(0, 55);
 
-    const location = useLocation();
-    const path = location.pathname;
-
     let options = {
         day: 'numeric',
         month: 'numeric',
@@ -53,15 +58,12 @@ function NewsCard({item, loggedIn, saveCardNews, deleteSaveCard, onSignIn}) {
             // setIsStateSave(true)
             saveCardNews(article)
         } else{
-
         }
         const keyItem = 'save'
         setCard({keyItem, article})
     }
-
     //удаление карточки
     function setCardRemove() {
-        // setIsStateSave(false);
         deleteSaveCard(article._id);
     }
 
@@ -73,6 +75,10 @@ function NewsCard({item, loggedIn, saveCardNews, deleteSaveCard, onSignIn}) {
                               `} 
                     onClick ={loggedIn ? (path === '/' ? setCardSave : setCardRemove ) : onSignIn }
             ></button>
+
+            <div className={path === '/' ? 'card__keyword_none' : 'card__keyword'}>
+                <p className='card__keyword-text'>{article.content}</p>
+            </div>
 
             <div className='card__button-text-container'>
                 {loggedIn && path === '/' && isStateSave ? 

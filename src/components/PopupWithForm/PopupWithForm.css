@@ -85,6 +85,10 @@
     color: white;
 }
 
+.popup__button_disabled{
+    background-color: #E6E8EB;
+}
+
 .popup__footer {
     text-align: center;
     font-family: Inter;
@@ -125,6 +129,17 @@
     background: transparent;
     color: #2F71E5;
     padding: 0;
+}
+
+.popup__error{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: -28px;
+    margin-bottom: 13px;
+    color: #FF0000;
 }
 
 @media screen and (max-width:540px){

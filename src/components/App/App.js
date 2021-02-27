@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Main from '../Main/Main.js'
 import Footer from '../Footer/Footer.js';
@@ -21,6 +21,11 @@ import {
     getToken,
     removeToken
 } from '../../utils/Token';
+import {
+    setCard,
+    getCard,
+    removeCard
+} from '../../utils/SearchCard';
 
 function App() {
     const [ isPopupSignIn, setIsPopupSignIn ] = React.useState(false);
@@ -37,6 +42,7 @@ function App() {
     const [ loggedIn, setLoggedIn ] = useState(false);
     const [ isStateSave, setIsStateSave ] = useState(false);
     const [ nothingFound, setNothingFound] = useState(false);
+    const history = useHistory();
    
 
     function handleIsPopupSignIn() {
@@ -59,16 +65,15 @@ function App() {
     useEffect(() => {
         getSaveCardNews();
         tokenCheck();
+        if(getCard()){
+            const newsArticle = getCard()
+            setCardNews(JSON.parse(newsArticle))
+        }
         NewsApi.getNewsInfo()
-        .then(res => {
-                setCardNews(res.articles)
-            })
-        .catch(err => console.log(err))
-    }, [])
-
-    useEffect(() => {
-        console.log('pognali')
-        tokenCheck();
+            .then(res => {
+                    setCardNews(res.articles)
+                })
+            .catch(err => console.log(err))
     }, [])
 
     function searchKeyWord(keyWord) {
@@ -82,7 +87,8 @@ function App() {
                 } else{
                     setNothingFound(false);
                 }
-                
+                const newsArticle = JSON.stringify(res.articles)
+                setCard(newsArticle);
                 setPreloader(false);
                 setCardNews(res.articles)
                 setNewsCardList(true);
@@ -90,8 +96,8 @@ function App() {
             .catch(err => console.log(err))
     }
 
-    function register({email, password, name}) {
-        MainApi.register({email, password, name})
+    function register(email, password, name) {
+        MainApi.register(email, password, name)
             .then(res => {
                 console.log(res)
                 if(res.status !== 400){
@@ -107,8 +113,8 @@ function App() {
             .catch(err => console.log(err))
     }
    
-    function authorize({email, password}) {
-        MainApi.authorize({email, password})
+    function authorize(email, password) {
+        MainApi.authorize(email, password)
             .then(res => {
                 if(!res){
                     setErrorMessage('Что-то пошло не так')
@@ -116,8 +122,8 @@ function App() {
                 if(res.token){
                     setToken(res.token);
                     setIsPopupSignIn(false);
-                    
-                    console.log(res)
+                    tokenCheck();
+                    removeCard();
                 }
             })
             .catch(err => console.log(err))
@@ -142,7 +148,6 @@ function App() {
                 }
             })
     }
-
     //сохраняем карточки
     function saveCardNews(data) {
         MainApi.saveArticle(data, keyWord)
@@ -151,17 +156,14 @@ function App() {
             })
             .catch(err => console.error(err))
     }
-
     //получаем сохраненые карточки
     function getSaveCardNews() {
         MainApi.getArticle()
             .then(data => {
-                console.log(data)
                 setSaveNews(data)
             })
             .catch(err => console.error(err))
     }
-
     //удаление картчоки
     function deleteSaveCard(articleID) {
         console.log(articleID)
@@ -172,6 +174,13 @@ function App() {
                 setSaveNews(saveArticle)
             })
     }
+    function signOut() {
+        removeToken();
+        history.push('/');
+        console.log('hey')
+        setLoggedIn(false);
+        removeCard();
+    }
     
 
     return (
@@ -181,9 +190,12 @@ function App() {
                 onSignIn={handleIsPopupSignIn}
                 loggedIn={loggedIn}
                 userData={userData}
+                signOut={signOut}
             />
             <SavedNewsHeader
                 saveNews={saveNews}
+                loggedIn={loggedIn}
+                userData={userData}
             />
             {/* < Preloader 
                 preloader={preloader}
@@ -201,6 +213,7 @@ function App() {
                       onSignIn={handleIsPopupSignIn}
                       preloader={preloader}
                       nothingFound={nothingFound}
+                      saveNews={saveNews}
                     />
                 </Route>
                 <ProtectedRoute 

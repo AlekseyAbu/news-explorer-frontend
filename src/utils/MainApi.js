@@ -5,7 +5,7 @@ class mainApi {
         this._url = url;
     }
 
-    register({email, password, name}) {
+    register(email, password, name) {
         console.log(this._url)
         return fetch(`${this._url}/signup`, {
             method: 'POST',
@@ -24,7 +24,8 @@ class mainApi {
         })  
     }
 
-    authorize({email, password}) {
+    authorize(email, password) {
+        console.log(email, password)
         return fetch(`${this._url}/signin`,{
             method: 'POST',
         headers: {
