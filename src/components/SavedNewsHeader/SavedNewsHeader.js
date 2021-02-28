@@ -5,7 +5,7 @@ import { numberDeclension, adjectiveDeclination } from '../../utils/utils';
 function SavedNewsHeader({ saveNews, loggedIn, userData }) {
     const location = useLocation();
     const path = location.pathname;
-        const keywords = loggedIn ? saveNews.map(item => item.keyword) : [];
+        const keywords = loggedIn && saveNews ? saveNews.map(item => item.keyword) : [];
 
         const keywordsSorted = [...new Set(keywords)]
             .map(value => {
