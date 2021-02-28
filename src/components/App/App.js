@@ -80,7 +80,11 @@ function App() {
         setKeyWord(keyWord)
         setPreloader(true);
         setNothingFound(false);
-        NewsApi.getSearchNews(keyWord)
+
+        let date = new Date();
+        const todayDate = nowDate(date)
+
+        NewsApi.getSearchNews(keyWord, todayDate)
             .then(res => {
                 if(res.totalResults === 0){
                     setNothingFound(true)
@@ -181,6 +185,20 @@ function App() {
         setLoggedIn(false);
         removeCard();
     }
+
+    function nowDate(date) {
+        let yy = date.getFullYear() % 100;
+        if (yy < 10) yy = '0' + yy;
+        yy = '20' + yy
+
+        let mm = date.getMonth() + 1;
+        if (mm < 10) mm = '0' + mm;
+
+        let dd = date.getDate();
+        if (dd < 10) dd = '0' + dd;
+
+        return yy + '-' + dd + '-' + mm;
+    }
     
 
     return (
@@ -197,9 +215,6 @@ function App() {
                 loggedIn={loggedIn}
                 userData={userData}
             />
-            {/* < Preloader 
-                preloader={preloader}
-            /> */}
             <Switch >
                 <Route exact path='/'> 
                     <SearchForm 

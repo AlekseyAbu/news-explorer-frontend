@@ -5,13 +5,6 @@ import { numberDeclension, adjectiveDeclination } from '../../utils/utils';
 function SavedNewsHeader({ saveNews, loggedIn, userData }) {
     const location = useLocation();
     const path = location.pathname;
-    let numberSaveNews = ''
-    // if (loggedIn && path === '/saved-news') {
-    //     numberSaveNews = Object.keys(saveNews).length;
-    //     const keywords = saveNews.map(item => item.keyword);
-    //     // keyWordNews.sort();
-    //     console.log(userData)
-    // }
         const keywords = loggedIn ? saveNews.map(item => item.keyword) : [];
 
         const keywordsSorted = [...new Set(keywords)]
@@ -39,7 +32,7 @@ function SavedNewsHeader({ saveNews, loggedIn, userData }) {
     return (
         <div className={`${path !== '/saved-news' ? 'save-news-header_none' : 'save-news-header'}`}>
             <p className='save-news-header__text'>Сохранённые статьи</p>
-            <h2 className='save-news-header__title'>{userData.name}, у вас {saveNews.length} сохранённых статей</h2>
+            <h2 className='save-news-header__title'>{userData.name}, у вас ${loggedIn && saveNews.length} сохранённых статей</h2>
             <p className='save-news-header__keywords'>По ключевым словам: {keywordsToRender}</p>
         </div>
     )

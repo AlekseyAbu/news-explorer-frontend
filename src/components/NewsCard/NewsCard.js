@@ -11,9 +11,7 @@ function NewsCard({item, loggedIn, saveCardNews, deleteSaveCard, onSignIn, saveN
         (saveNews &&
             saveNews.find(data => data.title === item.title)
         )
-    )
-    console.log(item)
-    
+    ) 
 
     let article = {}
     if(!item.description){

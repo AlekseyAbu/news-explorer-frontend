@@ -6,7 +6,6 @@ import { useState } from 'react';
 function NewsCardList({cardNews, loggedIn, saveCardNews, onSignIn, nothingFound, saveNews}) {
     const [ toShow, setToShow ] = useState(3);
     const seeItem = cardNews.slice(0, toShow);
-    console.log(cardNews)
     function handleToShow() {
         setToShow(toShow + 3);
     };
